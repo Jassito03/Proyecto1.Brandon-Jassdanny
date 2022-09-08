@@ -1,5 +1,8 @@
 package P.BJ.presentation.empleados;
 
+import P.BJ.presentation.empleados.Controller;
+import P.BJ.presentation.empleados.Model;
+
 import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
