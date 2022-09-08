@@ -24,6 +24,10 @@ public class View implements Observer {
         return panel;
     }
 
+    public void addTap(String title, JPanel tap){
+        taps.addTab(title, tap);
+    }
+
     @Override
     public void update(Observable updatedModel, Object param){
 

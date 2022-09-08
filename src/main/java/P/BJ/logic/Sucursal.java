@@ -9,6 +9,13 @@ public class Sucursal {
     private float zonaje;
     private Point puntoMapa;
 
+    public Sucursal(){
+        this.codigo = "";
+        this.referencia = "";
+        this.direccion = "";
+        this.zonaje = 0;
+        this.puntoMapa = null;
+    }
     public Sucursal(String codigo, String referencia, String direccion, float zonaje, Point puntoMapa) {
         this.codigo = codigo;
         this.referencia = referencia;

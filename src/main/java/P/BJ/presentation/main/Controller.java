@@ -15,6 +15,7 @@ public class Controller {
     }
 
     public void show(){
+        view.addTap("Sucursales", model.sucursalesController.show());
         Application.window.setContentPane(view.getPanel());
     }
 

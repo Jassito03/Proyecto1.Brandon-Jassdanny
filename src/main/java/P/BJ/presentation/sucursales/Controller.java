@@ -1,6 +1,8 @@
 package P.BJ.presentation.sucursales;
 
-import P.BJ.Application;
+import P.BJ.logic.Sucursal;
+
+import javax.swing.*;
 
 public class Controller {
 
@@ -14,8 +16,16 @@ public class Controller {
         view.setModel(model);
     }
 
-    public void show(){
-        Application.window.setContentPane(view.getPanel());
+    public javax.swing.JPanel show(){
+        return view.getPanel();
+    }
+
+    public void showSucursal(Sucursal sucursal){
+        JFrame window = new JFrame("Sucursal");
+        window.setSize(500,500);
+        window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        window.setVisible(true);
+        window.setContentPane(model.sucursalController.show(sucursal));
     }
 
 }
