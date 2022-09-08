@@ -1,9 +1,5 @@
 package P.BJ.presentation.main;
 
-import P.BJ.presentation.main.Controller;
-import P.BJ.presentation.main.Model;
-import P.BJ.presentation.acercade.View;
-
 import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
