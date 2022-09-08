@@ -1,14 +1,19 @@
 package P.BJ.presentation.acercade;
 
+import P.BJ.presentation.acercade.Controller;
+import P.BJ.presentation.acercade.Model;
+
 import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
 
 public class View implements Observer {
 
+    private JPanel panel;
+
     Model model;
     Controller controller;
-    private JPanel panel;
+
 
     public void setModel(Model model) {
         this.model = model;
