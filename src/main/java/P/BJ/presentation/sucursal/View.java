@@ -1,8 +1,5 @@
 package P.BJ.presentation.sucursal;
 
-import P.BJ.presentation.sucursal.Controller;
-import P.BJ.presentation.sucursal.Model;
-
 import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
