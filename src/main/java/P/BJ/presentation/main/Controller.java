@@ -13,7 +13,6 @@ public class Controller {
         view.setController(this);
         view.setModel(model);
     }
-
     public void show(){
         Application.window.setContentPane(view.getPanel());
     }
