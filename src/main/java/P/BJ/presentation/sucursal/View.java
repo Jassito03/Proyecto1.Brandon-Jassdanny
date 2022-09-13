@@ -21,7 +21,7 @@ public class View implements Observer {
         guardarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.add(new Sucursal(codigoFld.getText(), referenciaFld.getText(), direccionFld.getText(), new Float(zonajeFld.getText()), null));
+                controller.add(take());
                 controller.closeWindow();
             }
         });
@@ -53,5 +53,14 @@ public class View implements Observer {
         this.referenciaFld.setText(model.sucursal.getReferencia());
         this.direccionFld.setText(model.sucursal.getDireccion());
         this.zonajeFld.setText(Float.toString(model.sucursal.getZonaje()));
+    }
+
+    public Sucursal take(){
+        Sucursal s = new Sucursal();
+        s.setCodigo(codigoFld.getText());
+        s.setReferencia(referenciaFld.getText());
+        s.setDireccion(direccionFld.getText());
+        s.setZonaje(new Float(zonajeFld.getText()));
+        return s;
     }
 }

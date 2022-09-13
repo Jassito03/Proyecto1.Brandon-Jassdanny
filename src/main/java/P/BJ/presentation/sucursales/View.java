@@ -21,7 +21,7 @@ public class View implements Observer {
         agregarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.showSucursal();
+                controller.preAdd();
             }
         });
         buscarBtn.addActionListener(new ActionListener() {
