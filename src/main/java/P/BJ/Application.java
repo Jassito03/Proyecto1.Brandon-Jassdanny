@@ -38,7 +38,7 @@ public class Application {
         P.BJ.presentation.empleados.Model empleadosModel = new P.BJ.presentation.empleados.Model();
         P.BJ.presentation.empleados.View empleadosView = new P.BJ.presentation.empleados.View();
         empleadosController = new P.BJ.presentation.empleados.Controller(empleadosView, empleadosModel);
-        
+
 
         P.BJ.presentation.sucursal.Model sucursalModel = new P.BJ.presentation.sucursal.Model();
         P.BJ.presentation.sucursal.View sucursalView = new P.BJ.presentation.sucursal.View();

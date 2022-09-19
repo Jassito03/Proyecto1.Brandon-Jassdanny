@@ -103,7 +103,7 @@ public class View implements Observer {
             nombreLbl.setBorder(null);
             nombreLbl.setToolTipText(null);
         }
-        if (telefonoLbl.getText().equals(0)) {
+        if (telefonoFld.getText().length() < 8) {
             valid = false;
             telefonoLbl.setBorder(Application.BORDER_ERROR);
             telefonoLbl.setToolTipText("Telefono requerido");
@@ -111,10 +111,10 @@ public class View implements Observer {
             telefonoLbl.setBorder(null);
             telefonoLbl.setToolTipText(null);
         }
-        if (salarioLbl.getText().equals(0)) {
+        if (salarioFld.getText().length() < 4) {
             valid = false;
             salarioLbl.setBorder(Application.BORDER_ERROR);
-            salarioLbl.setToolTipText("Nombre requerido");
+            salarioLbl.setToolTipText("Salario requerido");
         } else {
             salarioLbl.setBorder(null);
             salarioLbl.setToolTipText(null);
