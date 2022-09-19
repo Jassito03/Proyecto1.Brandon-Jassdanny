@@ -8,6 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.image.*;
+import java.io.*;
 
 public class View implements Observer {
     private JPanel panel;
@@ -17,6 +19,7 @@ public class View implements Observer {
     private JTable empleadosFld;
     private JLabel nombreLbl;
     private JButton borrarFld;
+    private JButton reporteBtn;
 
     public View() {
         buscarFld.addActionListener(new ActionListener() {

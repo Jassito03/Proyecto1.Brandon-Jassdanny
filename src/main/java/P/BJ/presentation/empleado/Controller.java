@@ -30,7 +30,7 @@ public class Controller {
     JDialog dialog;
     public void show(){
         dialog = new JDialog(Application.window,"Empleado", true);
-        dialog.setSize(300,200);
+        dialog.setSize(270,270);
         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dialog.setContentPane(view.getPanel());
         Point location = Application.window.getLocation();

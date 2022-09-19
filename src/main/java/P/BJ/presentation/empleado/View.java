@@ -2,7 +2,7 @@ package P.BJ.presentation.empleado;
 
 import P.BJ.Application;
 import P.BJ.logic.Empleado;
-import P.BJ.logic.Sucursal;
+
 
 import javax.swing.*;
 import java.awt.event.*;

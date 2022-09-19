@@ -1,7 +1,5 @@
 package P.BJ.presentation.sucursales;
 
-import P.BJ.logic.Sucursal;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
