@@ -1,5 +1,9 @@
 package P.BJ.logic;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Empleado {
     private String cedula;
     private String nombre;

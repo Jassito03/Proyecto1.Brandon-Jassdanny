@@ -13,6 +13,7 @@ public class Controller {
     Model model;
 
     public Controller(Model model, View view) {
+        model.setSucursales(Service.instance().searchSucursales(""));
         this.view = view;
         this.model = model;
         view.setController(this);
@@ -31,8 +32,33 @@ public class Controller {
     public void preAdd(){
         Application.sucursalController.preAdd();
     }
-    public void add(Sucursal s){
+    public void add(Sucursal s) throws Exception {
         Service.instance().addSucursal(s);
         this.search("");
     }
+
+    public void editar(int row){
+        String codigo = model.getSucursales().get(row).getCodigo();
+        Sucursal e = null;
+        try {
+            e = Service.instance().sucursalGet(codigo);
+            Application.sucursalController.editar(e);
+        } catch (Exception ex) {}
+    }
+
+    public void borrar(int row){
+        String codigo = model.getSucursales().get(row).getCodigo();
+        Sucursal e=null;
+        try {
+            e= Service.instance().sucursalGet(codigo);
+            Service.instance().sucursalDelete(e);
+            this.buscar("");
+        } catch (Exception ex) {}
+    }
+    public void buscar(String filtro){
+        List<Sucursal> rows = Service.instance().searchSucursales(filtro);
+        model.setSucursales(rows);
+        model.commit();
+    }
+
 }

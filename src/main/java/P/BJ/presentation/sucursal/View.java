@@ -1,6 +1,8 @@
 package P.BJ.presentation.sucursal;
 
 import P.BJ.logic.Sucursal;
+import P.BJ.Application;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,10 +21,17 @@ public class View implements Observer {
 
     public View() {
         guardarBtn.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.add(take());
-                controller.closeWindow();
+                if (validate()) {
+                    Sucursal n = take();
+                    try {
+                    controller.guardar(n);
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(panel, ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
             }
         });
         cancelarBtn.addActionListener(new ActionListener() {
@@ -49,10 +58,14 @@ public class View implements Observer {
 
     @Override
     public void update(Observable updatedModel, Object param){
-        this.codigoFld.setText(model.sucursal.getCodigo());
-        this.referenciaFld.setText(model.sucursal.getReferencia());
-        this.direccionFld.setText(model.sucursal.getDireccion());
+        Sucursal suc = model.getSucursal();
+        this.codigoFld.setEnabled(model.getModo() == Application.MODO_AGREGAR);
+        this.codigoFld.setText(suc.getCodigo());
+        this.referenciaFld.setText(suc.getReferencia());
+        this.direccionFld.setText(suc.getDireccion());
         this.zonajeFld.setText(Float.toString(model.sucursal.getZonaje()));
+        this.panel.validate();
+
     }
 
     public Sucursal take(){
@@ -62,5 +75,44 @@ public class View implements Observer {
         s.setDireccion(direccionFld.getText());
         s.setZonaje(new Float(zonajeFld.getText()));
         return s;
+    }
+
+    private boolean validate() {
+        boolean valid = true;
+        if (codigoFld.getText().isEmpty()) {
+            valid = false;
+            codigoFld.setBorder(Application.BORDER_ERROR);
+            codigoFld.setToolTipText("Id requerido");
+        } else {
+            codigoFld.setBorder(null);
+            codigoFld.setToolTipText(null);
+        }
+
+        if (referenciaFld.getText().length() == 0) {
+            valid = false;
+            referenciaFld.setBorder(Application.BORDER_ERROR);
+            referenciaFld.setToolTipText("Nombre requerido");
+        } else {
+            referenciaFld.setBorder(null);
+            referenciaFld.setToolTipText(null);
+        }
+
+        if (direccionFld.getText().length() == 0) {
+            valid = false;
+            direccionFld.setBorder(Application.BORDER_ERROR);
+            direccionFld.setToolTipText("Direccion requerida");
+        } else {
+            direccionFld.setBorder(null);
+            direccionFld.setToolTipText(null);
+        }
+        if (zonajeFld.getText().equals(0.0)) {
+            valid = false;
+            zonajeFld.setBorder(Application.BORDER_ERROR);
+            zonajeFld.setToolTipText("Zonaje requerido");
+        } else {
+            zonajeFld.setBorder(null);
+            zonajeFld.setToolTipText(null);
+        }
+        return valid;
     }
 }

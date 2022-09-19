@@ -6,9 +6,19 @@ import java.util.Observer;
 
 public class Model extends java.util.Observable{
     Sucursal sucursal;
+    int modo;
+
+
+
+    public int getModo() {
+        return modo;
+    }
+
+    public void setModo(int modo) {
+        this.modo = modo;
+    }
 
     public Model() {
-        sucursal = new Sucursal();
     }
 
     public void setSucursal(Sucursal sucursal){

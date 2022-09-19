@@ -5,6 +5,8 @@ import P.BJ.logic.Sucursal;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -28,6 +30,22 @@ public class View implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.search(referenciaFld.getText());
+            }
+        });
+        sucursalesTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int row = sucursalesTable.getSelectedRow();
+                    controller.editar(row);
+                }
+            }
+        });
+        borrarBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = sucursalesTable.getSelectedRow();
+                controller.borrar(row);
             }
         });
     }

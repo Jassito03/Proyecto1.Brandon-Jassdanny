@@ -2,10 +2,15 @@ package P.BJ.data;
 
 import P.BJ.logic.Empleado;
 import P.BJ.logic.Sucursal;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
     private List<Sucursal> sucursales;
     private List<Empleado> empleados;

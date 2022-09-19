@@ -1,18 +1,19 @@
 package P.BJ.presentation.main;
 
 import java.util.Observable;
-import java.util.Observer;
 
 public class Model extends Observable {
 
-    public Model(){
-
-    }
     @Override
-    public void addObserver(Observer o){
+    public void addObserver(java.util.Observer o) {
         super.addObserver(o);
         commit();
     }
+
+    public Model() {
+
+    }
+
     public void commit(){
         setChanged();
         notifyObservers(null);
